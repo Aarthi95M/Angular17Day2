@@ -1,0 +1,75 @@
+<h3 class="registration-heading">Registration Form</h3>
+
+
+<div class="container">
+  <form [formGroup]="registrationForm"  (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label>First Name</label>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Enter First Name</mat-label>
+        <input matInput #input maxlength="10" placeholder="Aarthi" [formControl]="firstName">
+        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Enter Last Name</mat-label>
+        <input matInput #input maxlength="10" placeholder="Karthi" [formControl]="lastName">
+        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth</label>
+      <mat-form-field appearance="fill" class="full-width">
+        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" placeholder="Enter DOB">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="dateOfBirth.hasError('required')">
+          Date of Birth is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Enter your email</mat-label>
+        <input matInput formControlName="email" placeholder="pat@example.com">
+        <mat-error *ngIf="email.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+          Please enter a valid email
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <mat-form-field appearance="fill" class="full-width">
+        <input matInput formControlName="phone">
+        <mat-error *ngIf="phone.hasError('required')">
+          Phone is required
+        </mat-error>
+        <mat-error *ngIf="phone.hasError('pattern')">
+          Please enter a valid 10-digit phone number
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    
+    <div class="form-group">
+      <mat-checkbox formControlName="termsAccepted">
+        I accept the terms and conditions
+      </mat-checkbox>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success" [disabled]="!termsAccepted.value" type="submit">Register</button>
+    </div>
+  </form>
+</div>

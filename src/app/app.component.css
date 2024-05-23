@@ -1,0 +1,36 @@
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+
+  .registration-heading {
+    margin-left: 16px;
+    background-color: #799351;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  }
+  
+ 
+  
+
+ 
